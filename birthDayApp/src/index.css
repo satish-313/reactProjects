@@ -1,0 +1,100 @@
+:root {
+  --clear-pink:#f28ab2;
+  --light-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  --dark-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  --radius:0.25rem;
+  --fixed-width:450px;
+  --max-width:1170px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto Slab', sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+ul{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+
+main {
+  min-width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width:992px){
+  .section{
+    width: 95vw;
+  }
+}
+
+.container{
+  width: 90vw;
+  margin: 5rem 0;
+  max-width: var(--fixed-width);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--dark-shadow);
+}
+
+.container h3{
+  font-weight: normal;
+  text-transform: none;
+  margin-bottom: 2rem;
+}
+
+.person{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.person img{
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--light-shadow);
+}
+
+.person h4 {
+  margin-bottom: 0.35rem;
+}
+.person p {
+  margin-bottom: 0;
+}
+
+.container button{
+  display: block;
+  width: 100%;
+  background-color: var(--clear-pink);
+  border-color: transparent;
+  color: white;
+  margin: 2rem auto 0 auto;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
