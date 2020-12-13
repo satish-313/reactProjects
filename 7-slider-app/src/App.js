@@ -8,6 +8,26 @@ const App = () => {
   const [people,setPeolpe] = useState(data);
   const [index,setIndex] = useState(0);
 
+  const valid_button = (id) => {
+    if (id > people.length - 1){
+      return 0
+    }
+    else if (id < 0){
+      return people.length - 1
+    }
+    else {
+      return id
+    }
+  }
+
+  useEffect(() => {
+    const next_item = setInterval(() => {
+      setIndex(valid_button(index+1))
+    }, 5000);
+
+    return () => {clearInterval(next_item)}
+  })
+
   return(
     <section className="section">
       <div className="title">
@@ -18,14 +38,12 @@ const App = () => {
       <div className="section-center">
         <Person person={people[index]}/>
       </div>
-      <div className="button-container">
-        <button className="prev">
-          <FiChevronLeft onClick={() => setIndex(index-1)}/>
-        </button>
-        <button className="next">
-          <FiChevronRight onClick={() => setIndex(index+1)}/>
-        </button>
-      </div>
+      <button className="prev">
+        <FiChevronLeft onClick={() => setIndex(valid_button(index-1))}/>
+      </button>
+      <button className="next">
+        <FiChevronRight onClick={() => setIndex(valid_button(index+1))}/>
+      </button>
     </section>
   )
 };
